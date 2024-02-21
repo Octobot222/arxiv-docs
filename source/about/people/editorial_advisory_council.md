@@ -21,6 +21,8 @@ Editor-in-Chief, Journal of Investment Strategies (co-chair of arXiv Quantitativ
 
 **Thomas Dietterich (2023-2026)**, Distinguished Professor Emeritus and CoRIS Associate Director of Policy, University of Oregon (chair of arXiv Computer Science Editorial Committee)
 
+**Paul Gunnells (2024-2026)**, Professor, Department of Mathematics and Statistics, University of Massachusetts Amherst (chair of arXiv Mathematics Editorial Committee)
+
 **Jarvis Haupt (2023-2026)**, Associate Professor of Electrical and Computer Engineering, University of Minnesota (chair of arXiv Electrical Engineering and System Science Editorial Committee)
 
 **Joerg Stoye (2023-2026)**, Professor of Economics, Cornell University (chair of the arXiv Economics Editorial Committee)
