@@ -1,5 +1,6 @@
 # TeX Submissions
 
+*   [Changes  to (La)TeX processing](#newtex)
 *   [Submissions are automatically processed](#autoproc)
 *   [Considerations for (La)TeX submissions](#latex)
 *   [Considerations for PDFLaTeX submissions](#pdflatex)
@@ -16,6 +17,29 @@
 *   [Hidden files will be deleted upon announcement](#hidden)
 
 * * *
+
+<span id="newtex"></span>
+### (La)TeX processing changes &mdash; ~~April~~ May 2024
+
+We will soon be rolling out changes to how arXiv process (La)TeX submissions. These changes should not be noticable to most of our users. We will be retiring the arXiv-developed "AutoTeX" system that we have used for decades in favor of a simpler, more straight-foward process of converting (La)TeX submissions to PDFs.
+
+ 1. The AutoTeX system would try different versions of TeX to see which one successfully builds a PDF. Going forward we will only use the version of TeX currently used by arXiv.
+    - Our plan is that arXiv's "current" version closely track the annual TeX Live releases. In the past, we have often gone a few years between TeX updates.
+ 1. The AutoTeX system would attempt to determine which files in a submission were part of the main document, and which weren't. We're no longer going to do this.
+      - If there were multiple files ending in `.tex`, it would create PDFs for those extra files and append them to main paper's PDF. Now, if authors want a .tex file to be part of their main paper, they should use \include or \input commands to include the file. See https://www.baeldung.com/cs/latex-include-vs-input.
+      - If authors need the previous apppend behavior for a submission with multiple `.tex` files, please follow the instructions here: https://info.arxiv.org/help/00README.html.
+      - If image files (JPG, PNG, PDF) files were found, they would be rendered and appended verbatim to the main paper's PDF. If authors want to include images anywhere in their paper, they should use the normal TeX contructs for this. See https://latex-tutorial.com/tutorials/figures/. 
+  
+  1. The AutoTeX system would pre-load the LaTeX hyperref package to LaTeX submissions that do not already include it. This package add changes various references to active links in the PDF document (eg, clicking on a reference jumps to the entry in the bibliography section). We will no longer automatically try to add this package. (Note – before you add a \usepackage{hyperref} to your main TeX file, check to see if the template you are using already has a reference by checking the PDF for clickable links; most do).
+ 1. The AutoTeX system would look for any references in a paper that looked like an arXiv paper ID (such as 	arXiv:2402.08954, or 2402.08954), and turn the ID into a hyperlink to the paper on arXiv.
+We will not do that anymore. Authors should just write out `\href{https://doi.org/10.48550/arXiv.2402.08954}{2402.08954}`. See the [Hyperref documentation for more info](https://mirror.math.princeton.edu/pub/CTAN/macros/latex/contrib/hyperref/doc/hyperref-doc.html).
+      - While changes like these arguably made for a better viewing experience, they also made our TeX processing complex and opaque. When we make modifications to user source like this, the paper on arXiv presents differently than the paper on the user's local machine.
+
+1. arXiv presently has about 70 LaTeX packages we supply that papers can use without needing to upload their own copies. We have found that only 0.65% of recent submissions depend on this and, in some cases these packages are woefully out of date.
+      - We are going to eliminate these packages, and provide only those packages that are distributed with each annual TeX Live release. If you use any packages or style files that are not part of Tex Live, please upload them with your submission.
+ 
+At present, the documentation below is still largely accurate, but we are actively re-examining our (La)TeX processing, and there may be more changes in the future. If you have suggestions for changes we should make, please respond to the post about this change on the [arXiv Blog](https://blog.arxiv.org/).
+
 <span id="autoproc"></span>
 
 ### Submissions are automatically processed
@@ -50,6 +74,13 @@ The most flexible and robust figure inclusion is provided by the `graphics` and 
 
 
 Note that some software will permit you to include a mix of PostScript and PDFLaTeX-compatible figures and will perform the conversions to the appropriate format for you on the fly. arXiv does not permit such software to run during the AutoTeX processing. Why? It is possible for conversion issues to arise that can alter the scientific meaning or interpretation of your figure. Rather than invite such possibilities, we require that you use a unified figure format.
+
+#### Avoid embedding JavaScript in your PDF files
+
+Do not include embedded JavaScript such as animated gifs, movies, or HTML in your PDF. Submissions with embedded JavaScript are automatically rejected due to the potential security risks posed to arXiv systems. 
+- Submit all movies and animated GIFS as separate(non-JavaScript) ancillary files. 
+- Remove or disable JavaScript when building your PDF or generate PDFs using standard tools such as Adobe Distiller. 
+
 
 #### Separate figures with LaTeX submissions
 

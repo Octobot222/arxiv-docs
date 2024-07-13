@@ -18,7 +18,7 @@ You can browse articles and view categories at the individual archive pages:
 - Physics [physics](https://arxiv.org/archive/physics)
 - Quantum Physics [quant-ph](https://arxiv.org/archive/quant-ph)
 
-The [moderators for physics are listed here](https://arxiv.org/moderators#physics#physics).
+The [moderators for the physics archive are listed here](https://arxiv.org/moderators#nucl-ex).
 
 <span id="AdvisoryCommittee"></span>
 ## The arXiv Physics Section Editorial Committee:
@@ -27,15 +27,10 @@ The advisory committee members serve as consultants to Cornell University and to
 
 - Ralph Wijers, University of Amsterdam (chair)
 - Jacques Distler, University of Texas, Austin
-- Paul Fendley, University of Oxford
-- Paul Ginsparg, Cornell University
 - Daniel Gottesman, University of Maryland
-- Dong Lai, Cornell University
 - Michael Lawler, Cornell University
-- Brian Maple, University of California, San Diego
-- Bruno Nachtergaele, University of California, Davis
 - Chris Reynolds, University of Maryland
-- Robert Seiringer, Institute of Science and Technology Austria
+- Rena Zieve, University of California, Davis
 
 ## Historical notes
 - 2023-07: new arXiv bylaws adopted, by which Physics Advisory Committee renamed Physics Editorial Committee
